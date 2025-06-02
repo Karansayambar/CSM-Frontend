@@ -41,8 +41,9 @@
 import { MapPin, Battery } from "lucide-vue-next";
 import { onMounted, watch, ref } from "vue";
 import { useStations } from "../../hooks/useStation.js";
-import L from "leaflet";
+import L, { icon } from "leaflet";
 import "leaflet/dist/leaflet.css";
+import bluePin from "@/assets/bluePin.png";
 
 export default {
   name: "MapView",
@@ -60,7 +61,13 @@ export default {
     onMounted(() => {
       // Fetch station data
       getStations();
-
+      const defaultIcon = L.icon({
+        iconUrl: bluePin,
+        iconColor: "blue",
+        iconSize: [35, 41],
+        iconAnchor: [12, 41],
+        popupAnchor: [1, -34],
+      });
       // Initialize map
       map.value = L.map("map").setView([0, 0], 13);
 
@@ -78,9 +85,9 @@ export default {
       group.value.clearLayers();
 
       stations.forEach((station) => {
-        const marker = L.marker([station.latitude, station.longitude]).addTo(
-          group.value
-        );
+        const marker = L.marker([station.latitude, station.longitude], {
+          icon: bluePin,
+        }).addTo(group.value);
 
         marker.bindPopup(`
           <b>${station.stationName}</b><br>
