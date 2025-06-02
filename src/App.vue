@@ -32,7 +32,7 @@ const loginFormRef = ref(null);
 // import useRouter from "./hooks/useRouter";
 
 // const router = useRouter();
-const API_URL = "http://localhost:3000/api";
+const API_URL = "https://csm-backend-ihis.onrender.com/api";
 
 export default {
   name: "App",

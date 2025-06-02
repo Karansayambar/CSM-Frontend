@@ -64,6 +64,11 @@
         <AlertCircle class="icon" />
         {{ error }}
       </div>
+      <div class="login-details">
+        <h2>login details</h2>
+        <p>email : chargeEV@gmail.com</p>
+        <p>password : chargeEV</p>
+      </div>
     </div>
   </div>
 </template>
@@ -236,5 +241,27 @@ export default {
   border-radius: 0.375rem;
   display: flex;
   align-items: center;
+}
+.login-details {
+  border-radius: 12px;
+  margin: 30px auto;
+  text-align: left;
+  font-family: "Poppins", sans-serif;
+}
+
+.login-details h2 {
+  margin-bottom: 16px;
+  font-size: 20px;
+  color: #333;
+}
+
+.login-details p {
+  margin: 10px 0;
+  font-size: 15px;
+  color: #555;
+}
+
+.login-details strong {
+  color: #222;
 }
 </style>

@@ -86,10 +86,6 @@ export default {
       deleteStation,
     } = useStations();
 
-    const handleEdit = (station) => {
-      editingStation.value = station;
-    };
-
     const handleViewDetails = (station) => {
       selectedStation.value = station;
     };
@@ -113,6 +109,11 @@ export default {
     onMounted(() => {
       getStations();
     });
+
+    const handleEdit = (station) => {
+      editingStation.value = station;
+      showAddForm.value = true;
+    };
 
     const handleDelete = async (stationId) => {
       if (!confirm("Are you sure you want to delete this charging station?")) {

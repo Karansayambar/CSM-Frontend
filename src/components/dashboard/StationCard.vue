@@ -1,5 +1,5 @@
 <template>
-  <div class="station-card" @click="$emit('view-details', station)">
+  <div class="station-card">
     <div class="station-header">
       <h3 class="station-name">
         <Zap class="icon" />
@@ -11,26 +11,31 @@
     </div>
 
     <div class="station-container">
-      <div class="station-details">
-        <p class="detail-item">
-          <MapPin class="icon" />
-          <strong>Location:</strong> {{ station.latitude }},
-          {{ station.longitude }}
-        </p>
-        <p class="detail-item">
-          <Battery class="icon" />
-          <strong>Power Output:</strong> {{ station.powerOutput }} kW
-        </p>
-        <p class="detail-item">
-          <Plug class="icon" />
-          <strong>Connector:</strong> {{ station.connectorType }}
-        </p>
+      <div>
+        <div class="station-details" @click="$emit('view-details', station)">
+          <p class="detail-item">
+            <MapPin class="icon" />
+            <strong>Location:</strong> {{ station.latitude }},
+            {{ station.longitude }}
+          </p>
+          <p class="detail-item">
+            <Battery class="icon" />
+            <strong>Power Output:</strong> {{ station.powerOutput }} kW
+          </p>
+          <p class="detail-item">
+            <Plug class="icon" />
+            <strong>Connector:</strong> {{ station.connectorType }}
+          </p>
+        </div>
         <!-- <p class="detail-item">
         <User class="icon" />
         <strong>Created by:</strong> {{ station.createdBy.name }}
       </p> -->
         <div class="station-actions">
-          <button @click="$emit('edit', station)" class="action-button edit">
+          <button
+            @click.stop.prevent="$emit('edit', station, station._id)"
+            class="action-button edit"
+          >
             <Edit class="icon" />
             Edit
           </button>
