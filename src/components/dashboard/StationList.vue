@@ -40,6 +40,7 @@
       :station="editingStation"
       @save="handleSave"
       @cancel="handleCancel"
+      @getStations="loadStations"
     />
     <StationDetails
       v-if="selectedStation"
@@ -133,6 +134,7 @@ export default {
       editingStation,
       filteredStations,
       loading,
+      selectedStation,
       filters,
       setFilters,
       handleEdit,
@@ -140,7 +142,6 @@ export default {
       handleDelete,
       handleCancel,
       handleViewDetails,
-      selectedStation,
       closeDetails,
     };
   },

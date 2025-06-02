@@ -6,10 +6,6 @@
     </h3>
 
     <div class="map-placeholder">
-      <!-- <div class="map-content">
-        <div class="map-emoji">🗺️</div>
-        <p class="map-text">Interactive Map Live</p>
-      </div> -->
       <div id="map"></div>
     </div>
     <div v-if="filteredStations.length" class="map-stations">

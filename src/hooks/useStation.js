@@ -80,6 +80,7 @@ export function useStations() {
       } else {
         console.log("Data not saved");
       }
+      await getStations();
     } catch (error) {
       console.error("API error:", error);
     } finally {
@@ -106,6 +107,7 @@ export function useStations() {
       } else {
         console.log("Data not saved");
       }
+      await getStations();
     } catch (error) {
       console.error("API error:", error);
     } finally {
@@ -122,6 +124,7 @@ export function useStations() {
         },
       });
       console.log("Station deleted successfully:", response.data);
+      await getStations();
     } catch (error) {
       console.error(
         "Error deleting station:",
