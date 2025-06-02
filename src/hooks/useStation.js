@@ -2,6 +2,8 @@ import axios from "axios";
 import { ref, computed, inject } from "vue";
 
 const API_URL = "https://csm-backend-ihis.onrender.com/api/charger";
+// const API_URL = "http://localhost:3000/api/charger";
+
 const token = localStorage.getItem("token");
 
 export function useStations() {

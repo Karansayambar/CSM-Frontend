@@ -61,13 +61,7 @@ export default {
     onMounted(() => {
       // Fetch station data
       getStations();
-      const defaultIcon = L.icon({
-        iconUrl: bluePin,
-        iconColor: "blue",
-        iconSize: [35, 41],
-        iconAnchor: [12, 41],
-        popupAnchor: [1, -34],
-      });
+
       // Initialize map
       map.value = L.map("map").setView([0, 0], 13);
 
@@ -81,12 +75,18 @@ export default {
     // Watch for data changes and add markers reactively
     watch(filteredStations, (stations) => {
       if (!map.value) return;
-
+      const defaultIcon = L.icon({
+        iconUrl: bluePin,
+        iconColor: "blue",
+        iconSize: [35, 41],
+        iconAnchor: [12, 41],
+        popupAnchor: [1, -34],
+      });
       group.value.clearLayers();
 
       stations.forEach((station) => {
         const marker = L.marker([station.latitude, station.longitude], {
-          icon: bluePin,
+          icon: defaultIcon,
         }).addTo(group.value);
 
         marker.bindPopup(`
